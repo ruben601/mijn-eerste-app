@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slimme Planner - Jouw Automatische Studieagenda</title>
+    <meta name="description"
+        content="Plan je deadlines moeiteloos met de Slimme Planner. AI-gestuurde planning voor studenten.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation / Header -->
+        <header>
+            <div class="logo">
+                <span class="logo-icon">✨</span>
+                <h1>Slimme<span>Planner</span></h1>
+            </div>
+        </header>
+
+        <main id="app-view">
+            <!-- Screens will be injected here or toggled -->
+
+            <!-- STARTPAGINA (Default) -->
+            <section id="screen-start" class="screen active">
+                <div class="welcome-card">
+                    <h2>Welkom terug! 👋</h2>
+                    <p>Beheer je planning en haal betere resultaten.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="calendar-section">
+                        <h3>Weekplanning</h3>
+                        <div id="week-calendar" class="week-calendar detailed">
+                            <!-- Days will be injected here -->
+                        </div>
+                    </div>
+
+                    <div class="planning-overview">
+                        <h3>Lijstoverzicht</h3>
+                        <div id="task-list" class="task-list">
+                            <!-- Tasks will appear here -->
+                            <div class="empty-state">
+                                <p>Nog geen taken toegevoegd. Begin met plannen!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-add-task" class="btn-primary main-fab">
+                    <span class="icon">+</span>
+                    Nieuwe Taak
+                </button>
+            </section>
+
+            <!-- ACTIEPAGINA (Add Task) -->
+            <section id="screen-add" class="screen">
+                <div class="back-nav">
+                    <button class="btn-back" id="btn-cancel-add">← Terug</button>
+                    <h2>Nieuwe Taak</h2>
+                </div>
+
+                <form id="form-add-task" class="glass-form">
+                    <div class="form-group">
+                        <label for="task-name">Naam van de taak *</label>
+                        <input type="text" id="task-name" placeholder="bv. Examen Wiskunde" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task-desc">Beschrijving</label>
+                        <textarea id="task-desc" placeholder="Wat moet je precies doen?" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="task-prep">Voorbereidingstijd (minuten)</label>
+                            <input type="number" id="task-prep" placeholder="bv. 120" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="task-deadline">Deadline *</label>
+                            <input type="date" id="task-deadline" required>
+                        </div>
+                    </div>
+
+                    <div id="form-error" class="error-status hidden">
+                        Vul alle verplichte velden correct in.
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full">Genereer Planning ✨</button>
+                </form>
+            </section>
+
+            <!-- RESULTAATPAGINA (Planning Result) -->
+            <section id="screen-result" class="screen">
+                <div class="result-header">
+                    <h2>Jouw AI Planning ✨</h2>
+                    <p>We hebben de ideale voorbereidingstijd voor je berekend.</p>
+                </div>
+
+                <div id="generated-plan" class="plan-container">
+                    <!-- AI Generated slots will appear here -->
+                </div>
+
+                <div class="action-footer">
+                    <button id="btn-approve" class="btn-primary">Goedkeuren</button>
+                    <button id="btn-adjust" class="btn-secondary">Aanpassen</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
